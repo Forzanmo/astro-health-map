@@ -1,0 +1,4 @@
+crew_id,metric,value,unit,ts_utc,device,provenance
+B,hr,72,bpm,2031-05-23T08:30:00.000Z,chest_strap_sim,SIMULATED
+B,hr,72,bpm,2031-05-23T08:40:00.000Z,chest_strap_sim,SIMULATED
+B,temp,36.9,°C,2031-05-23T08:40:00.000Z,patch_sim,SIMULATED
