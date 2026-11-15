@@ -1,0 +1,64 @@
+/* tokens.css: colours, type, spacing and the status colours. */
+:root {
+  color-scheme: dark;
+  --bg: #070c1a;
+  --bg-raised: #0c1326;
+  --panel: #101931;
+  --panel-2: #16213f;
+  --field: #0a1124;
+  --line: #233054;
+  --line-strong: #3a4a78;
+  --text: #ecf0fb;
+  --text-2: #b3bdd9;
+  --text-3: #8d99bb;
+  --accent: #86b8ff;
+  --accent-strong: #a9cdff;
+  --accent-ink: #061229;
+  --torso: #232d4d;
+
+  --font: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --fs-xs: 0.6875rem;
+  --fs-sm: 0.78rem;
+  --fs-md: 0.875rem;
+  --fs-lg: 1rem;
+  --fs-xl: 1.625rem;
+
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --radius: 10px;
+  --radius-sm: 6px;
+  --shadow: 0 10px 28px -14px rgb(0 0 0 / 0.7);
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Status: --s paints shapes, --s-text is the readable text colour on dark panels. */
+.s-fine { --s: #35c58a; --s-text: #5fdba6; }
+.s-watch { --s: #f2a93b; --s-text: #f7bd62; }
+.s-problem { --s: #ff5d5d; --s-text: #ff8a8a; }
+.s-none { --s: #6c7693; --s-text: #a7b0cb; }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { font-size: 16px; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 400 var(--fs-md)/1.45 var(--font);
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, p, ol, ul, dl, dd { margin: 0; padding: 0; }
+ol, ul { list-style: none; }
+button, input, select { font: inherit; color: inherit; }
+::selection { background: var(--accent); color: var(--accent-ink); }
+:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 2px; border-radius: var(--radius-sm); }
+* { scrollbar-width: thin; scrollbar-color: var(--line-strong) transparent; }
+[hidden] { display: none !important; }
+.sr-only { position: absolute !important; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}

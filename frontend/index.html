@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VitalOrbit</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23070c1a'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%2386b8ff' stroke-width='3'/%3E%3Ccircle cx='16' cy='16' r='3.5' fill='%2335c58a'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles/tokens.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/components.css">
+</head>
+<body>
+  <header id="top-bar" class="top-bar"></header>
+  <div id="banner" class="banner" role="status" hidden></div>
+
+  <main class="grid">
+    <div class="col col-left">
+      <section class="panel" aria-labelledby="vitals-title">
+        <h2 id="vitals-title" class="sr-only">Vitals</h2>
+        <div id="vitals-panel" class="vitals slot"></div>
+      </section>
+      <section class="panel" aria-labelledby="add-title">
+        <h2 id="add-title" class="sr-only">Add reading</h2>
+        <div id="add-reading"></div>
+        <div id="csv-import"></div>
+      </section>
+    </div>
+
+    <div class="col col-centre">
+      <section class="panel stage-panel" aria-labelledby="body-title">
+        <h2 id="body-title" class="sr-only">Body map</h2>
+        <div id="body-figure" class="stage">
+          <svg id="body-svg" viewBox="0 0 1000 640" role="img" aria-label="Body figure with seven clickable regions">
+            <g class="orbits" aria-hidden="true">
+              <ellipse cx="500" cy="330" rx="430" ry="150"/>
+              <ellipse cx="500" cy="330" rx="330" ry="250"/>
+              <ellipse cx="500" cy="330" rx="230" ry="300"/>
+            </g>
+            <path class="lead" data-region="mind" d="M300 80H509"/>
+            <path class="lead" data-region="lungs" d="M300 240H425L452 261"/>
+            <path class="lead" data-region="metabolism" d="M300 390H470L492 369"/>
+            <path class="lead" data-region="bones" d="M300 540H430L458 470"/>
+            <path class="lead" data-region="head" d="M700 110H570L531 147"/>
+            <path class="lead" data-region="heart" d="M700 250H540L495 239"/>
+            <path class="lead" data-region="radiation" d="M700 430H654"/>
+            <g transform="translate(369.5 20) scale(0.8475)">
+              <rect class="reg halo" data-region="radiation" x="-28" y="-22" width="364" height="752" rx="170"><title>Whole body: radiation</title></rect>
+              <image href="assets/astronaut.png" width="308" height="708"/>
+              <g class="reg" data-region="bones"><title>Bones and muscles</title>
+                <rect class="hit" x="62" y="455" width="78" height="150" rx="24"/>
+                <rect class="hit" x="150" y="455" width="72" height="150" rx="24"/>
+                <rect class="hit" x="22" y="335" width="56" height="140" rx="26"/>
+                <circle class="node" cx="105" cy="530" r="10"/>
+              </g>
+              <g class="reg" data-region="mind"><title>Mind and sleep</title>
+                <ellipse class="hit" cx="165" cy="88" rx="74" ry="44"/>
+                <circle class="node" cx="165" cy="72" r="10"/>
+              </g>
+              <g class="reg" data-region="head"><title>Head and eyes</title>
+                <ellipse class="hit" cx="172" cy="170" rx="50" ry="38"/>
+                <circle class="node" cx="192" cy="150" r="10"/>
+              </g>
+              <g class="reg" data-region="lungs"><title>Lungs and cabin air</title>
+                <rect class="hit" x="66" y="246" width="62" height="78" rx="22"/>
+                <circle class="node" cx="98" cy="285" r="10"/>
+              </g>
+              <g class="reg" data-region="heart"><title>Heart and circulation</title>
+                <circle class="hit" cx="150" cy="258" r="24"/>
+                <circle class="node" cx="150" cy="258" r="10"/>
+              </g>
+              <g class="reg" data-region="metabolism"><title>Metabolism and temperature</title>
+                <rect class="hit" x="88" y="384" width="112" height="58" rx="22"/>
+                <circle class="node" cx="145" cy="412" r="10"/>
+              </g>
+            </g>
+          </svg>
+          <div id="region-chips" class="region-chips"></div>
+        </div>
+      </section>
+      <div class="centre-row">
+        <section id="region-panel" class="panel region-panel" aria-label="Selected body region"></section>
+        <section id="stand-test" class="panel stand-panel" aria-label="Landing readiness"></section>
+      </div>
+    </div>
+
+    <div class="col col-right">
+      <section class="panel alerts-panel" aria-labelledby="alerts-title">
+        <h2 id="alerts-title">Alerts <span id="alert-count" class="count"></span></h2>
+        <div id="alert-inbox" class="alert-inbox slot"></div>
+      </section>
+      <section class="panel ground-panel" aria-labelledby="ground-title">
+        <h2 id="ground-title">Ground view</h2>
+        <div id="ground-view" class="slot"></div>
+      </section>
+    </div>
+  </main>
+
+  <section id="demo-controls" class="dock" aria-label="Demo controls"></section>
+  <footer class="footer">Decision support and education prototype. Not a medical device.</footer>
+  <dialog id="why-popup" class="why-popup" aria-labelledby="why-title"></dialog>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

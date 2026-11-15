@@ -1,0 +1,4 @@
+crew_id,metric,value,unit,ts_utc,device,provenance
+B,hr,71,bpm,,wearable,SIMULATED
+B,hr,72,bpm,,wearable,SIMULATED
+B,temp,36.9,°C,,wearable,SIMULATED
