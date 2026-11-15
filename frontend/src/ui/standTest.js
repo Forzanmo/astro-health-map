@@ -15,7 +15,7 @@ function clock(seconds) {
 }
 
 function rowView(row, done) {
-  return `<h2>Stand test replay</h2>
+  return `<h2 class="label">Stand test replay</h2>
     <div class="stand-now">
       <span><b>${esc(POSTURES[row.posture] || row.posture)}</b> at ${clock(row.t_s)}</span>
       <span><span class="num">${esc(row.hr_bpm)}</span> <span class="unit">bpm</span></span>
@@ -27,7 +27,7 @@ function rowView(row, done) {
 
 function resultView(r) {
   const fired = r.fired ? `<p>Rule fired: ${esc(r.fired)}</p>` : '';
-  return `<h2>Landing readiness</h2>
+  return `<h2 class="label">Landing readiness</h2>
     <div class="stand-result">
       <p class="headline">${pill(r.readiness)} Stand test result</p>
       <p>Heart rate rise: <b>${esc(r.hr_rise)}</b> <span class="unit">bpm</span> ${lastTag}</p>
@@ -38,7 +38,7 @@ function resultView(r) {
 
 function draw() {
   if (timer) return;
-  panel.innerHTML = summary ? resultView(summary) : `<h2>Landing readiness</h2><p class="muted">${TEXT.noStand}</p>`;
+  panel.innerHTML = summary ? resultView(summary) : `<h2 class="label">Landing readiness</h2><p class="muted">${TEXT.noStand}</p>`;
 }
 
 export function play(result) {

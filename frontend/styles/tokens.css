@@ -1,64 +1,133 @@
-/* tokens.css: colours, type, spacing and the status colours. */
+/* tokens.css: colours, type, spacing and the status colours. Dark is the default, .light is the option. */
 :root {
   color-scheme: dark;
-  --bg: #070c1a;
-  --bg-raised: #0c1326;
-  --panel: #101931;
-  --panel-2: #16213f;
-  --field: #0a1124;
-  --line: #233054;
-  --line-strong: #3a4a78;
-  --text: #ecf0fb;
-  --text-2: #b3bdd9;
-  --text-3: #8d99bb;
-  --accent: #86b8ff;
-  --accent-strong: #a9cdff;
-  --accent-ink: #061229;
-  --torso: #232d4d;
+  --bg-void: #05080D;
+  --bg-deep: #0A1018;
+  --surface-glass: rgba(16, 26, 38, 0.62);
+  --surface-solid: #101A26;
+  --surface-raised: #162333;
+  --surface-hover: #1C2D42;
+  --border: rgba(120, 200, 255, 0.16);
+  --border-strong: rgba(120, 200, 255, 0.45);
+  --dot-field: rgba(120, 200, 255, 0.07);
 
-  --font: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, sans-serif;
-  --fs-xs: 0.6875rem;
-  --fs-sm: 0.78rem;
+  --text: #F1F5F9;
+  --text-dim: #94A3B8;
+  --text-faint: #64748B;
+
+  --cyan: #4CC9FF;
+  --cyan-ink: #04131C;
+  --blue: #1E6BFF;
+  --violet: #A78BFA;
+  --green: #3DFF8A;
+  --green-dim: #1B8F4C;
+  --green-bg: #0B1F14;
+
+  --status-normal: #3DFF8A;
+  --status-watch: #FFC247;
+  --status-urgent: #FF4D5E;
+  --status-none: #64748B;
+
+  --radius-card: 12px;
+  --radius-inner: 8px;
+  --radius-pill: 999px;
+  --blur: 16px;
+  --glow-cyan: 0 0 24px rgba(76, 201, 255, 0.25);
+  --glow-green: 0 0 12px rgba(61, 255, 138, 0.35);
+  --shadow-pop: 0 30px 60px -20px rgba(0, 0, 0, 0.8);
+
+  --font-sans: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "Cascadia Mono", "Cascadia Code", Consolas, ui-monospace, "SF Mono", Menlo, monospace;
+  --fs-label: 0.75rem;
+  --fs-sm: 0.8125rem;
   --fs-md: 0.875rem;
-  --fs-lg: 1rem;
-  --fs-xl: 1.625rem;
+  --fs-lg: 1.0625rem;
+  --fs-num: 1.375rem;
 
   --sp-1: 4px;
   --sp-2: 8px;
   --sp-3: 12px;
   --sp-4: 16px;
   --sp-5: 24px;
-  --radius: 10px;
-  --radius-sm: 6px;
-  --shadow: 0 10px 28px -14px rgb(0 0 0 / 0.7);
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Status: --s paints shapes, --s-text is the readable text colour on dark panels. */
-.s-fine { --s: #35c58a; --s-text: #5fdba6; }
-.s-watch { --s: #f2a93b; --s-text: #f7bd62; }
-.s-problem { --s: #ff5d5d; --s-text: #ff8a8a; }
-.s-none { --s: #6c7693; --s-text: #a7b0cb; }
+.light {
+  color-scheme: light;
+  --bg-void: #F1F5F9;
+  --bg-deep: #E2E8F0;
+  --surface-glass: rgba(255, 255, 255, 0.85);
+  --surface-solid: #FFFFFF;
+  --surface-raised: #F8FAFC;
+  --surface-hover: #E8EEF5;
+  --border: #CBD5E1;
+  --border-strong: #0284C7;
+  --dot-field: rgba(15, 23, 42, 0.05);
+  --text: #0F172A;
+  --text-dim: #475569;
+  --text-faint: #94A3B8;
+  --cyan: #0284C7;
+  --cyan-ink: #FFFFFF;
+  --blue: #1D4ED8;
+  --violet: #6D28D9;
+  --status-normal: #15803D;
+  --status-watch: #B45309;
+  --status-urgent: #DC2626;
+  --status-none: #64748B;
+  --glow-cyan: none;
+  --shadow-pop: 0 30px 60px -24px rgba(15, 23, 42, 0.35);
+}
+
+/* Status: --s paints shapes, borders and status text. */
+.s-fine { --s: var(--status-normal); --s-text: var(--status-normal); }
+.s-watch { --s: var(--status-watch); --s-text: var(--status-watch); }
+.s-problem { --s: var(--status-urgent); --s-text: var(--status-urgent); }
+.s-none { --s: var(--status-none); --s-text: var(--text-dim); }
 
 *, *::before, *::after { box-sizing: border-box; }
 html { font-size: 16px; }
 body {
   margin: 0;
-  background: var(--bg);
   color: var(--text);
-  font: 400 var(--fs-md)/1.45 var(--font);
-  font-variant-numeric: tabular-nums;
+  font: 400 var(--fs-md)/1.45 var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  background-color: var(--bg-void);
+  background-image:
+    radial-gradient(var(--dot-field) 1px, transparent 1.5px),
+    radial-gradient(ellipse at 50% 45%, var(--bg-deep), var(--bg-void) 75%);
+  background-size: 22px 22px, 100% 100%;
 }
 h1, h2, h3, p, ol, ul, dl, dd { margin: 0; padding: 0; }
 ol, ul { list-style: none; }
 button, input, select { font: inherit; color: inherit; }
-::selection { background: var(--accent); color: var(--accent-ink); }
-:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 2px; border-radius: var(--radius-sm); }
-* { scrollbar-width: thin; scrollbar-color: var(--line-strong) transparent; }
+::selection { background: var(--cyan); color: var(--cyan-ink); }
+:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; border-radius: var(--radius-inner); }
+* { scrollbar-width: thin; scrollbar-color: var(--border-strong) transparent; }
 [hidden] { display: none !important; }
 .sr-only { position: absolute !important; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
+/* Mono voice: labels of one to three words, numbers and system text. */
+.label, .panel > h2, .field, .top-fact small {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  line-height: 1.34;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.num { font-family: var(--font-mono); font-weight: 500; font-variant-numeric: tabular-nums; }
+
+.scanlines { position: relative; }
+.scanlines::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px 3px);
+}
+
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation: none !important; }
 }

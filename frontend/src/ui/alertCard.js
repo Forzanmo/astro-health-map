@@ -29,11 +29,11 @@ export function renderAlertCard(a) {
     <article class="alert-card ${status.cls}">
       <div class="alert-top">${pill(a.level)}${badges(a)}<span class="rule">${esc(a.rule_id)}</span></div>
       <dl class="alert-lines">
-        <dt>${ALERT_LINES.what}</dt><dd class="what">${esc(a.what)}</dd>
-        <dt>${ALERT_LINES.why}</dt><dd>${esc(a.why)}${note} ${tag(a.provenance)}</dd>
-        <dt>${ALERT_LINES.doNow}</dt><dd><ol>${a.do_now.map((step) => `<li>${esc(step)}</li>`).join('')}</ol></dd>
-        <dt>${ALERT_LINES.evidence}</dt><dd>${evidence(a)}</dd>
-        <dt>${ALERT_LINES.escalation}</dt>
+        <dt class="label">${ALERT_LINES.what}</dt><dd class="what">${esc(a.what)}</dd>
+        <dt class="label">${ALERT_LINES.why}</dt><dd>${esc(a.why)}${note} ${tag(a.provenance)}</dd>
+        <dt class="label">${ALERT_LINES.doNow}</dt><dd><ol>${a.do_now.map((step) => `<li>${esc(step)}</li>`).join('')}</ol></dd>
+        <dt class="label">${ALERT_LINES.evidence}</dt><dd>${evidence(a)}</dd>
+        <dt class="label">${ALERT_LINES.escalation}</dt>
         <dd><span class="esc-text">${esc(a.escalation_text)}</span>. ${esc(a.escalation_reason)} <span class="who">${esc(a.who)}</span></dd>
       </dl>
       ${share}

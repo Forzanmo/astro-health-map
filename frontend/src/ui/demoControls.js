@@ -10,7 +10,7 @@ function options(list) {
 
 function markup() {
   return `
-    <span class="dock-title">Demo controls</span>
+    <span class="dock-title label">Demo controls</span>
     <label class="field">Profile<select id="ctl-profile">${options(PROFILES)}</select></label>
     <label class="field">Phase<select id="ctl-phase">${options(PHASES)}</select></label>
     <label class="field">Mission day<input id="ctl-day" type="number" inputmode="numeric" class="narrow"></label>

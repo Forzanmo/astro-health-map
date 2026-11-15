@@ -34,6 +34,9 @@ export const ALERT_LINES = { what: 'What', why: 'Why', doNow: 'Do now', evidence
 export const BADGES = { private: 'PRIVATE', design: 'DESIGN', rose: 'LEVEL ROSE', conflict: 'CONFLICT' };
 export const TEXT = {
   noData: 'No data',
+  stripReady: 'VitalOrbit health OS ready',
+  themeLight: 'Light theme',
+  themeDark: 'Dark theme',
   conflict: 'Conflict',
   linkUp: 'Link up',
   linkDown: 'Link down',

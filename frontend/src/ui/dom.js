@@ -4,7 +4,7 @@ import { statusOf, TEXT } from '../constants.js';
 const SHAPES = {
   's-fine': '<circle cx="5" cy="5" r="4.5"/>',
   's-watch': '<path d="M5 .5 9.8 9.5H.2Z"/>',
-  's-problem': '<path d="M5 0 10 5 5 10 0 5Z"/>',
+  's-problem': '<rect x=".5" y=".5" width="9" height="9" rx="1"/>',
   's-none': '<path fill-rule="evenodd" d="M5 .5a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9Zm0 2a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"/>'
 };
 

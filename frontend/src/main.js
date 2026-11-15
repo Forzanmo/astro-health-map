@@ -16,10 +16,11 @@ import * as demoControls from './ui/demoControls.js';
 import * as groundView from './ui/groundView.js';
 import * as standTest from './ui/standTest.js';
 import * as whyPopup from './ui/whyPopup.js';
+import * as themeToggle from './ui/themeToggle.js';
 
 const modules = [
   topBar, vitalsPanel, addReadingForm, csvImport, bodyFigure, regionPanel,
-  alertInbox, demoControls, groundView, standTest, whyPopup
+  alertInbox, demoControls, groundView, standTest, whyPopup, themeToggle
 ];
 
 async function run(call, onFieldError) {

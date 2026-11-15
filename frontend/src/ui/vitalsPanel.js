@@ -18,7 +18,7 @@ function card(v) {
   const status = statusOf(v.level);
   return `
     <article class="vital ${status.cls}">
-      <header><h3>${esc(v.label)}</h3>${pill(v.level)}</header>
+      <header><h3 class="label">${esc(v.label)}</h3>${pill(v.level)}</header>
       <p class="vital-value">
         <span class="num">${pair(v.value, v.value2)}</span>
         <span class="unit">${esc(v.unit)}</span>

@@ -23,13 +23,13 @@ function whyLink(id) {
 function body(region, alerts) {
   const content = REGION_CONTENT[region.id] || { why: [], note: '' };
   const readings = region.readings.length
-    ? `<h3>Readings</h3><table class="readings"><tbody>${region.readings.map(readingRow).join('')}</tbody></table>` : '';
+    ? `<h3 class="label">Readings</h3><table class="readings"><tbody>${region.readings.map(readingRow).join('')}</tbody></table>` : '';
   const alertList = alerts.length
     ? `<ul>${alerts.map(alertRow).join('')}</ul>` : `<p class="muted">${TEXT.noRegionAlerts}</p>`;
-  const why = content.why.length ? `<h3>${TEXT.why}</h3><div class="why-links">${content.why.map(whyLink).join('')}</div>` : '';
+  const why = content.why.length ? `<h3 class="label">${TEXT.why}</h3><div class="why-links">${content.why.map(whyLink).join('')}</div>` : '';
   const note = content.note ? `<p class="region-note">${esc(content.note)}</p>` : '';
   return `<div class="region-head"><h2>${esc(region.label)}</h2>${pill(region.level)}</div>
-    ${note}${readings}<h3>Alerts</h3>${alertList}${why}`;
+    ${note}${readings}<h3 class="label">Alerts</h3>${alertList}${why}`;
 }
 
 export function mount(root, actions) {

@@ -6,13 +6,13 @@ let view = null;
 
 function delayLine(c) {
   const shown = c.shown_delay_s !== c.delay_s ? ` This demo waits ${esc(c.shown_delay_s)} s.` : '';
-  return `<p class="ground-delay">One-way delay to Earth: ${esc(c.delay_s)} s.${shown}</p>`;
+  return `<p class="ground-delay sys">&gt; One-way delay to Earth: ${esc(c.delay_s)} s.${shown}</p>`;
 }
 
 function item(g) {
   return `<li class="ground-item">
     ${pill(g.level)}<span>${esc(g.what)}</span>
-    <span class="meta">Data as of ${esc(g.data_as_of)}. <b>${esc(GROUND_STATUS[g.status] || g.status)}</b></span>
+    <span class="sys">&gt; Data as of ${esc(g.data_as_of)} · ${esc(GROUND_STATUS[g.status] || g.status)}</span>
   </li>`;
 }
 
